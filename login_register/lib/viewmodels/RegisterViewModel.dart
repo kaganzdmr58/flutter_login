@@ -3,6 +3,8 @@ import 'package:login_register/views/AccountScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
+import '../views/LoginScreen.dart';
+
 class RegisterViewModel {
 
   Future<void> saveUser(BuildContext context,String username,String email, String password,String repeatPassword) async {
@@ -17,7 +19,9 @@ class RegisterViewModel {
       await prefs.setString(Constants.PASSWORD, password);
 
       Navigator.push(context, MaterialPageRoute(
-          builder: (context) => const AccountScreen()) );
+          builder: (context) => const AccountScreen())
+      );
+
     }
   }
 
@@ -49,8 +53,12 @@ class RegisterViewModel {
   void showToast(BuildContext context, String message) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(message),
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     ));
+  }
+
+  void gotoLoginScreen(BuildContext context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()) );
   }
 
 

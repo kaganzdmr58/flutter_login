@@ -49,7 +49,6 @@ class _WelcomeState extends State<Welcome> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   SizedBox(
                     width: 280.0,
                     child:  Image.asset("images/logo.png"),
@@ -57,10 +56,12 @@ class _WelcomeState extends State<Welcome> {
                   const SizedBox(height: 10,),
                   const Padding(
                     padding: EdgeInsets.all(20),
-                    child: Text(Constants.WELCOME,style: TextStyle(color: Colors.black,fontSize: 50),),
-                  )
-                  /*SizedBox(height: 10,),
-                  Text("Aldi Sports",style: TextStyle(color: Colors.white,fontSize: 18),),*/
+                    child: Text(Constants.WELCOME
+                      ,style: TextStyle(color: Colors.black,fontSize: 50,
+                        fontFamily: 'BrandonText',),
+                    ),
+                  ),
+
                 ],
               ),
             ),
@@ -72,7 +73,9 @@ class _WelcomeState extends State<Welcome> {
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60))
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60),
+                  ),
               ),
               child: Column(
                 children: [
@@ -81,9 +84,7 @@ class _WelcomeState extends State<Welcome> {
 
                   GestureDetector(
                       onTap: (){
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text(Constants.NOT_INTEGRTED)),
-                        );
+                        _viewModel.showToast(context, Constants.NOT_INTEGRTED);
                       },
                       child: Flex(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +119,9 @@ class _WelcomeState extends State<Welcome> {
                   ),
                   const Spacer(flex: 20,),
                   const Text(Constants.CHOSE_INPUT_METHOD,
-                    style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 16),
+                    style: TextStyle(color: Colors.grey
+                        , fontWeight: FontWeight.bold,fontSize: 16
+                        , fontFamily: 'BrandonText',),
                   ),
                   const Spacer(flex: 20,),
                   Flex(direction: Axis.horizontal,
@@ -137,7 +140,10 @@ class _WelcomeState extends State<Welcome> {
                             color: Colors.red.shade700,
                           ),
                           child: const Center(
-                            child: Text(Constants.SING_UP,style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
+                            child: Text(Constants.SING_UP,style:
+                                TextStyle(color: Colors.white,fontWeight:FontWeight.bold,
+                                  fontFamily: 'BrandonButton',),
+                            ),
                           ),
                         ),
                       ),
@@ -155,7 +161,10 @@ class _WelcomeState extends State<Welcome> {
                             color: Colors.red.shade700,
                           ),
                           child: const Center(
-                            child: Text(Constants.LOGIN,style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
+                            child: Text(Constants.LOGIN,style:
+                            TextStyle(color: Colors.white,fontWeight:FontWeight.bold,
+                              fontFamily: 'BrandonButton',),
+                            ),
                           ),
                         ),
                       ),

@@ -13,5 +13,11 @@ class WelcomeViewModel{
     Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen()) );
   }
 
+  void showToast(BuildContext context, String message) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      duration: const Duration(seconds: 2),
+    ));
+  }
 
 }

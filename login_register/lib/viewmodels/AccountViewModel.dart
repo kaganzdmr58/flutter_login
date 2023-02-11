@@ -7,10 +7,10 @@ class AccountViewModel {
 
   Future<void> removeUser(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove(Constants.IS_LOGGED_IN);
-    await prefs.remove(Constants.USER_NAME);
-    await prefs.remove(Constants.USER_NAME);
-    await prefs.remove(Constants.IS_LOGGED_IN);
+    await prefs.setBool(Constants.IS_LOGGED_IN, false);
+    await prefs.setString(Constants.USER_NAME, "");
+    await prefs.setString(Constants.EMAIL, "");
+    await prefs.setString(Constants.PASSWORD, "");
 
     Navigator.push(context, MaterialPageRoute(
         builder: (context) => const WelcomeScreen()) );

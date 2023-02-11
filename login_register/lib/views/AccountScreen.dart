@@ -51,7 +51,7 @@ class _AccountState extends State<Account> {
                     style: TextStyle(
                       fontSize: 24.0,
                       color: Colors.green,
-                      fontFamily: 'BrandonText',
+                      fontFamily: 'BrandonTitle',
                     ),
                   ),
                  /* const Spacer(),

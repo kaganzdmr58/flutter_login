@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/Constants.dart';
 import 'package:login_register/viewmodels/RegisterViewModel.dart';
-import 'package:login_register/views/LoginScreen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -24,11 +23,11 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
 
-  RegisterViewModel _viewModel = RegisterViewModel();
-  var _name;
-  var _email;
-  var _password;
-  var _repeatPassword;
+  final RegisterViewModel _viewModel = RegisterViewModel();
+  late String _name;
+  late String _email;
+  late String _password;
+  late String _repeatPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,8 @@ class _RegisterState extends State<Register> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text( Constants.REGISTER ,style: TextStyle(color: Colors.white,fontSize: 60),),
+                  Text( Constants.REGISTER ,style: TextStyle(color: Colors.white,fontSize: 60,
+                  fontFamily: 'BrandonTitle'),),
                 ],
               ),
             ),
@@ -65,14 +65,16 @@ class _RegisterState extends State<Register> {
               height: MediaQuery.of(context).size.height* 5/8,
               decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60))
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60)
+                      ,topRight: Radius.circular(60),
+                  ),
               ),
               child: Column(
                 children: [
                   const Spacer(),
                   const Spacer(),
                   Padding(
-                    padding: EdgeInsets.only(right: 30,left: 30),
+                    padding: const EdgeInsets.only(right: 30,left: 30),
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -110,8 +112,8 @@ class _RegisterState extends State<Register> {
                             padding: const EdgeInsets.only(left: 10,right: 10),
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200)
-                                )
+                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                ),
                             ),
                             child: TextField(
                               onChanged: (value){
@@ -119,7 +121,9 @@ class _RegisterState extends State<Register> {
                               },
                               decoration: const InputDecoration(
                                 hintText: Constants.E_MAIL,
-                                hintStyle: TextStyle( color: Colors.grey),
+                                hintStyle: TextStyle( color: Colors.grey,
+                                  fontFamily: 'BrandonText',
+                                ),
                                 border:InputBorder.none,
                               ),
                             ),
@@ -128,8 +132,8 @@ class _RegisterState extends State<Register> {
                             padding: const EdgeInsets.only(left: 10,right: 10),
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200)
-                                )
+                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                ),
                             ),
                             child: TextField(
                               onChanged: (value){
@@ -137,7 +141,9 @@ class _RegisterState extends State<Register> {
                               },
                               decoration: const InputDecoration(
                                 hintText: Constants.PASSWORD_,
-                                hintStyle: TextStyle( color: Colors.grey),
+                                hintStyle: TextStyle( color: Colors.grey,
+                                  fontFamily: 'BrandonText',
+                                ),
                                 border:InputBorder.none,
                               ),
                             ),
@@ -146,8 +152,8 @@ class _RegisterState extends State<Register> {
                             padding: const EdgeInsets.only(left: 10,right: 10),
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200)
-                                )
+                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                ),
                             ),
                             child: TextField(
                               onChanged: (value){
@@ -155,7 +161,9 @@ class _RegisterState extends State<Register> {
                               },
                               decoration: const InputDecoration(
                                 hintText: Constants.REPEAD_PASSWORD_,
-                                hintStyle: TextStyle( color: Colors.grey),
+                                hintStyle: TextStyle( color: Colors.grey,
+                                  fontFamily: 'BrandonText',
+                                ),
                                 border:InputBorder.none,
                               ),
                             ),
@@ -178,16 +186,24 @@ class _RegisterState extends State<Register> {
                         color: Colors.red.shade700,
                       ),
                       child: const Center(
-                        child: Text(Constants.CREATE ,style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),),
+                        child: Text(Constants.CREATE ,style:
+                          TextStyle(color: Colors.white,fontWeight:FontWeight.bold,
+                            fontFamily: 'BrandonButton',
+                          ),
+                        ),
                       ),
                     ),
                   ),
                   const Spacer(),
                    GestureDetector(
                      onTap: (){
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()) );
+                       _viewModel.gotoLoginScreen(context);
                      },
-                       child: Text(Constants.I_HAVE_ALREADY,style: TextStyle(color: Colors.red,fontSize: 16),)
+                       child: const Text(Constants.I_HAVE_ALREADY,style:
+                          TextStyle(color: Colors.red,fontSize: 16,
+                            fontFamily: 'BrandonText',
+                          ),
+                       ),
                    ),
                   const Spacer(),
                 ],

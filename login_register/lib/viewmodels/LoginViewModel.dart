@@ -8,10 +8,12 @@ class LoginViewModel {
 
   Future<void> login(BuildContext context,String email,String password) async {
     final prefs = await SharedPreferences.getInstance();
-    final saveEmail = prefs.getString(Constants.USER_NAME) ?? '';
+    final saveEmail = prefs.getString(Constants.EMAIL) ?? '';
     final savePassword = prefs.getString(Constants.PASSWORD) ?? '';
 
     bool _isvalidate = await _validate(context, email, password);
+
+    print(saveEmail.toString()+savePassword.toString());
 
     if(_isvalidate){
       if (saveEmail.isNotEmpty && password.isNotEmpty) {
